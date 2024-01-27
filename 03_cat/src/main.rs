@@ -1,3 +1,9 @@
+use catr::Cli;
+use clap::Parser;
+
 fn main() {
-    println!("Hello, world!");
+    if let Err(e) = catr::run(Cli::parse()) {
+        eprintln!("{}", e);
+        std::process::exit(1);
+    }
 }
